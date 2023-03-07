@@ -67,21 +67,16 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
           child: Container(
         width: 80,
-        height: 80,
+        height: 40,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20), color: Colors.black),
       )
               .animate(
                 target: flag ? 1 : 0,
-                onPlay: (controller) {
-                  controller.repeat(reverse: true);
-                },
               )
-              .shimmer(delay: 500.ms, duration: 1200.ms)
-              .shake(hz: 4, curve: Curves.easeInOutCubic)
-              .scaleXY(end: 1.1, duration: 600.ms)
-              .then(delay: 600.ms)
-              .scaleXY(end: 1 / 1.1)),
+              .slideX(begin: 2, end: -2, delay: 500.ms, duration: 1200.ms)
+              .slideY(duration: 1200.ms, begin: 2, end: -2)
+              .fadeIn(duration: 1200.ms)),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
